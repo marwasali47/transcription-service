@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" monitorInterval="30">
+    <Properties>
+        <Property name="LOG_PATTERN">
+            transcription-service %mdc{trace-id} %mdc{user-token} %d{yyyy-MMM-dd HH:mm:ss.SSS a} [%t] %-5level %logger{36} - %msg%n
+        </Property>
+    </Properties>
+    <Appenders>
+        <!-- Console Appender -->
+        <Console name="ConsoleAppender" target="SYSTEM_OUT" follow="true">
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+        </Console>
+
+        <!-- SYSlog Appender -->
+        <!--<Socket name="SyslogAppender" host="${sys:logstashHost}" port="${sys:logstashPort}" protocol="TCP">
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+        </Socket>-->
+    </Appenders>
+    <Loggers>
+        <!-- Log everything in custom package -->
+        <Logger name="com.orange" level="debug" additivity="false">
+            <AppenderRef ref="ConsoleAppender" />
+        </Logger>
+
+        <!-- Log everything in Spring Boot -->
+        <Logger name="org.springframework.boot" level="info" additivity="false">
+            <AppenderRef ref="ConsoleAppender" />
+        </Logger>
+
+        <!-- Log everything in Spring Core -->
+        <Logger name="org.springframework.core" level="info" additivity="false">
+            <AppenderRef ref="ConsoleAppender" />
+        </Logger>
+
+        <Root level="error">
+            <AppenderRef ref="ConsoleAppender" />
+
+        </Root>
+    </Loggers>
+</Configuration>

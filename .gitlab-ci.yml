@@ -1,0 +1,4 @@
+include:
+  - project: 'hubme-group/common-pipeline'
+    ref: master
+    file: '/ci/.gitlab-ci.yml'

@@ -1,0 +1,16 @@
+oauth:
+  client:
+    secret: secret
+    id: web
+  protocol: http
+  server:
+    host: testing-oauth-service.smartnomadworkspace.svc.cluster.local
+    port: 8985
+
+proxy:
+  enabled: true
+  host: cs.pr-proxy.service.sd.diod.tech
+  port: 3128
+
+logging:
+  config: 'classpath:log4j2.xml'

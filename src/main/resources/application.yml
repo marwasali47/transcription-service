@@ -1,0 +1,29 @@
+server:
+  port: 4444
+
+oauth:
+  client:
+    secret: secret
+    id: web
+  protocol: http
+  server:
+    host: localhost
+    port: 8985
+    checkTokenUrl: /oauth/check_token
+
+rabbitmq:
+  username: guest
+  password: guest
+  host: localhost
+  stomp:
+    port: 61613
+    virtualHost: /
+
+
+proxy:
+  enabled: false
+  host: cs.pr-proxy.service.sd.diod.tech
+  port: 3128
+
+logging:
+  config: 'classpath:log4j2-dev.xml'
